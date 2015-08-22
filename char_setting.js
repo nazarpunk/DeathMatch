@@ -1,4 +1,4 @@
-﻿if (typeof ch === "undefined") ch = {}
+﻿if (typeof ch === "undefined") ch = {};
 
 ch.set = {
 	race: {
@@ -73,12 +73,25 @@ ch.set = {
 			title: "Самка"
 		}
 	},
-	skill_group : {
+	skill_group : { //ddhdhdhdh
 		attack : {
 			title : "Атака"
 		},
 		defence : {
 			title : "Защита"
+		},
+		stealth : {
+			title : "Скрытность"
+		}
+		
+        stances : {
+			title : "Стойки"
+		}
+		MagicSigns : {
+			title : "Знаки колдовства"
+		}
+		general : {
+			title : "Общие навыки"
 		}
 	},
 	skill: {
@@ -126,7 +139,7 @@ ch.set = {
 		splash_attack_throw: {
 			title: "Множественный бросок",
 			group : "attack",
-			description: "Швырнуть охапку камней."
+			description: "Швырнуть охапку метательного."
 		},
 		speed_attack: {
 			title: "Быстрая атака",
@@ -136,7 +149,7 @@ ch.set = {
 		push: {
 			title: "Отброс",
 			group : "attack",
-			description: "Сбивание с ног. Пинком. В табло. Отброс идёт как Быстрая атака."
+			description: "Сбивание с ног. Отброс идёт как Быстрая атака."
 		},
 		shield_attack: {
 			title: "Удар щитом",
@@ -146,7 +159,7 @@ ch.set = {
 		rush: {
 			title: "Натиск",
 			group : "attack",
-			description: " Бег в выбранной стойке. Без штрафов к расстоянию."
+			description: "Бег в выбранной стойке. Без штрафов к расстоянию."
 		},
 		provocation: {
 			title: "Провокация",
@@ -156,7 +169,7 @@ ch.set = {
 		disarm: {
 			title: "Обезоруживание",
 			group : "attack",
-			description: "Кэп"
+			description: "Выбивание оружия находящегося в слоте оружие"
 		},
 		feint: {
 			title: "Финт",
@@ -166,17 +179,17 @@ ch.set = {
 
 		stance_defence: {
 			title: "Защитная стойка",
-			group : "defence",
+			group : "stances",
 			description: "Уровень защитной стойки = Бонус ко всем видам защиты."
 		},
 		stance_attack: {
 			title: "Атакующая стойка",
-			group : "defence",
+			group : "stances",
 			description: "Уровень= Бонус ко всем видам атаки."
 		},
 		stance_range: {
 			title: "Стойка Стрелка",
-			group : "defence",
+			group : "stances",
 			description: "Уровень= Бонус к попаданию у атак."
 		},
 		stance_range_move: {
@@ -186,7 +199,7 @@ ch.set = {
 		},
 		stance_magick: {
 			title: "Стойка Колдуна",
-			group : "defence",
+			group : "stances",
 			description: "Уровень= Бонус к выбранному знаку в заклинании."
 		},
 		stance_magik_move: {
@@ -196,13 +209,14 @@ ch.set = {
 		},
 		stance_agility: {
 			title: "Стойка ловкача",
-			group : "defence",
+			group : "stances",
 			description: "Уровень= Бонус к уклонению и избежанию."
 		},
 		aim: {
 			title: "Прицеливание",
-			group : "defence",
-			description: "Уровень= бонус к попаданию. Прицеливание накапливается, если не атаковать, и если цель не пропадает из виду. Прицеливание можно делать с оружием  ближнего боя. Прицеливание отключает бег."
+			group : "stealth",
+			def: 0, //default
+			description: "Уровень= бонус к попаданию. Прицеливание накапливается, если не атаковать, и если цель не пропадает из виду. Прицеливание бывает с оружием  ближнего боя. Прицеливание отключает бег."
 		},
 
 
@@ -224,6 +238,7 @@ ch.set = {
 		block_any: {
 			title: "Закрыться",
 			group : "defence",
+			def: 0, //default
 			description: "Защита чем попало. \"Что попало\" всегда получает полный урон."
 		},
 		dodge: {
@@ -236,24 +251,83 @@ ch.set = {
 			group : "defence",
 			description: "Защита от Площадной атаки. Удача - Урон не проходит. Неудача - Урон весь влетает по персонажу броне и эквипу."
 		},
-
-
+	
+        SpellCreate {
+            title: "Создание заклинания.",
+            group : "MagicSigns",
+            description: "Создать заклинание выбранной школы. 1d6 на количество урона. Без вложений все знаки будут 1d6 рандом"
+        },
+        SpellItem {
+            title: "Создать магический предмет",
+            group : "MagicSigns",
+            description: "Создать копию простого предмета. Свойства определяются знаками." 
+        },        
+        SignPow {
+            title: "Знак Мощности",
+            group : "MagicSigns",
+            description: "Знак увеличивающий количество очков урона"
+        },
+         SignCon {
+            title: "Знак Контроля",
+            group : "MagicSigns",
+            description: "Знак увеличивающий точность попадания заклинанием. В дуэли магов отвечает за перехват заклинания."
+        },
+         SignLen {
+            title: "Знак Длительности",
+            group : "MagicSigns",
+            description: "Знак увеличивающий длительность действия заклинания или магически похожей способности."
+        },
+         SignSqu {
+            title: "Знак Площадности",
+            group : "MagicSigns",
+            description: "Знак увеличивающий область действия заклинания, размер магического щита или снаряда. 1pt=2hex"
+        },
+         SignSpd {
+            title: "Знак Скорости",
+            group : "MagicSigns",
+            description: "Знак увеличивающий количество заклинаний в ход. 2-4-6 очка=1-2-3 заклинания в ход."
+        },        
+      
 		evasion: {
 			title: "Уклонение",
+			group: "general",
+			description"Попытаться уклониться от атаки. Успех-урон не проходит. Равное значение-урон по эквипу. Неудача-полный урон."			
 		},
 		hide: {
-			title:"Скрытность",
+			title:"Затаиться",
+			group: "general",
+			description: "Спрятаться неподвижно"
 		},
 		run: {
 			title:"Бег",
+			group:"general",
+			def: 0, //default
+			description: "Рвануть с места."
 		},
 		jump: {
 			title: "Прыжок",
+			group: "general",
+			def: 0, //default
+			description: "Прыжок в выбранный гекс. Или прыжок на месте."
 		},
 		swim: {
-			title: "Плавание"
-		}
+			title: "Плавание",
+			group: "general",
+			description: "Плыть или не плыть? Задержать дыхание."
+		},
+		crouch: {
+			title: "Присесть",
+			group: "general",
+			def: 0, //default
+			description: "Присесть, чтобы скрыться или стать меньшей целью."
+		},
 
+        Lay: {
+			title: "Залечь",
+			group: "general",
+			def: 0, //default
+			description: "Залечь, чтобы скрыться или стать совсем маленькой целью."
+		},
 	}
 
-}
+};
