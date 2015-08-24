@@ -157,7 +157,12 @@ $(function(){
 	})
 
 	$(".skill", "#skill_wrap").hover(function(){
-		$("#tooltip_content").html($(this).attr("id") + " - "+ $(this).data("val"))
+		var name = $(this).attr("id")
+		name = name.replace("skill_","")
+		var val = $(this).data("val")
+		var desc = ch.set.skill[name].description
+		
+		$("#tooltip_content").html(desc)
 		$("#tooltip_point").stop(true,true).fadeIn()
 		
 	}, function(){
