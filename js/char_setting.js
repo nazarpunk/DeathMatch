@@ -1,4 +1,4 @@
-if (typeof ch === "undefined") ch = {}
+if (typeof ch === "undefined") ch = {};
 
 ch.set = {
 	race: {
@@ -254,4 +254,4 @@ ch.set = {
 
 	}
 
-}
+};

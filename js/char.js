@@ -1,13 +1,4 @@
-function rand(min, max)
-{
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-get_tooltip_content = function(c){
-	c = "<div class='corner_top'></div><div class='corner_bottom'></div>"+c
-	return c
-}
-
-
+function rand(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min;}
 
 if (typeof ch === "undefined") alert("char_setting.js is corrupted")
 char = {}
