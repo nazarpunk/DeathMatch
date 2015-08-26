@@ -1,174 +1,179 @@
 function rand(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min;}
 
-if (typeof ch === "undefined") alert("char_setting.js is corrupted")
-char = {}
+if (typeof ch === "undefined") alert("char_setting.js is corrupted");
+char = {};
 
 ch.draw = function(){
-	var out=""
+	var out="";
 	//race
 	$.each(ch.set.race,function(k,v){
-		var title = (typeof v.title !== "undefined") ? v.title : k 
+		var title = (typeof v.title !== "undefined") ? v.title : k ;
 		out+="<input id='race_"+k+"' type='radio' name='race' value='"+k+"'>\
-		<label for='race_"+k+"'><i></i><span>"+title+"</span></label>"
-	})
-	var l = $("#race_wrap").html($(out)).find("input[type=radio]").length
+		<label for='race_"+k+"'><i></i><span>"+title+"</span></label>";
+	});
+	var l = $("#race_wrap").html($(out)).find("input[type=radio]").length;
 	
-	if ($("input[type=radio]:checked","#race_wrap").length <= 0) $("input[type=radio]","#race_wrap").eq(rand(0,l-1)).prop("checked",true) 
+	if ($("input[type=radio]:checked","#race_wrap").length <= 0) $("input[type=radio]","#race_wrap").eq(rand(0,l-1)).prop("checked",true); 
 	
 	//sex
-	out=""
+	out="";
 	$.each(ch.set.sex, function(k,v){
-		var title = (typeof v.title !== "undefined") ? v.title : k 
+		var title = (typeof v.title !== "undefined") ? v.title : k; 
 		out+="<input id='sex_"+k+"' type='radio' name='sex' value='"+k+"'>\
-		<label for='sex_"+k+"'>"+title+"</label>"		
-	})
-	var l = $("#sex_wrap").html($(out)).find("input[type=radio]").length
-	if ($("input[type=radio]:checked","#sex_wrap").length <= 0) $("input[type=radio]","#sex_wrap").eq(rand(0,l-1)).prop("checked",true) 
+		<label for='sex_"+k+"'>"+title+"</label>";
+	});
+	var l = $("#sex_wrap").html($(out)).find("input[type=radio]").length;
+	if ($("input[type=radio]:checked","#sex_wrap").length <= 0) $("input[type=radio]","#sex_wrap").eq(rand(0,l-1)).prop("checked",true); 
 
 	//skill
-	out=""
-	var elem = $("#skill_wrap")
-	var groups = {}
+	out="";
+	var elem = $("#skill_wrap");
+	var groups = {};
 
 	$.each(ch.set.skill,function(k,v){
 
-		var group = "all"
-		var group_name = "Хня"
+		var group = "all";
+		var group_name = "Хня";
 		if (typeof v.group !== "undefined") {
-			group =  v.group
-			group_name = group
+			group =  v.group;
+			group_name = group;
 			
 			if (typeof ch.set.skill_group[v.group] !== "undefined")
 				if (typeof ch.set.skill_group[v.group].title !== "undefined")
-				group_name = ch.set.skill_group[v.group].title
-		}
+				group_name = ch.set.skill_group[v.group].title;
+		};
  
 		
-		var title = (typeof v.title !== "undefined") ? v.title : k
+		var title = (typeof v.title !== "undefined") ? v.title : k;
 		
 		if (typeof groups[group] === "undefined")
-			groups[group] = $("<table><tr><th>"+group_name+"</th></tr></table>").addClass("skill_group").appendTo(elem)
+			groups[group] = $("<table><tr><th>"+group_name+"</th></tr></table>").addClass("skill_group").appendTo(elem);
 		
-		var val = -1
+		var val = -1;
 		var tr = $("<tr><td>"+title+"</td><td class='skill_val'>"+val+"</td></tr>")
 			.attr("id","skill_"+k)
 			.addClass("skill")
 			.data("val",val)
-			.appendTo(groups[group])
-	})
+			.appendTo(groups[group]);
+	});
+	$(".skill_group:nth-child(3n+3)", "#skill_wrap").after($("<div>"));
 	
 	
 	
-}
+};
 
 ch.portrait_draw = function(){
-	var race = ch.race_get()
-	var sex = ch.sex_get()
-	$("#portrait_img").html("<img src='img/portrait/"+ race + "_"+sex+".jpg' alt='' />")
-}
+	var race = ch.race_get();
+	var sex = ch.sex_get();
+	$("#portrait_img").html("<img src='img/portrait/"+ race + "_"+sex+".jpg' alt='' />");
+};
 
 ch.race_change = function(){
-	var race = ch.race_get()
+	var race = ch.race_get();
 	
-	ch.portrait_draw()
-	ch.hitbox.draw()
-}
+	$("#skill_aim_attack_throw td:first-child").css("color","red")
+	
+	ch.portrait_draw();
+	ch.hitbox.draw();
+};
 ch.race_get = function() {
-	return  char.race = $("input[name=race]:checked", "#race_wrap").val()
-}
+	return  char.race = $("input[name=race]:checked", "#race_wrap").val();
+};
 ch.sex_change = function(){
-	ch.portrait_draw()
-}
+	ch.portrait_draw();
+};
 ch.sex_get = function(){
-	return char.sex = $("input[name=sex]:checked", "#sex_wrap").val()
-}
+	return char.sex = $("input[name=sex]:checked", "#sex_wrap").val();
+};
 
-ch.hitbox = {}
-char.hit = {}
+ch.hitbox = {};
+char.hit = {};
 ch.hitbox.draw = function(){
-	var elem = $("#hitbox")
-	var race = ch.race_get()
-	var race =  (typeof ch.set.race[race].hit !== "undefined") ? ch.set.race[race].hit : {}
-	var def = $.extend({},ch.set.hit, race)
-	var line = 0, row = 0, line_tmp = 0
+	var elem = $("#hitbox");
+	var race = ch.race_get();
+	var race =  (typeof ch.set.race[race].hit !== "undefined") ? ch.set.race[race].hit : {};
+	var def = $.extend({},ch.set.hit, race);
+	var line = 0, row = 0, line_tmp = 0;
 	
 	$.each(def,function(k,v){
-		$.each(v,function(k1,v1){
-			line_tmp++
-		})
-		if (line_tmp > line) line = line_tmp
-		line_tmp = 0
-		row++
-	})
+		$.each(v,function(k1,v1){ line_tmp++; });
+		if (line_tmp > line) line = line_tmp;
+		line_tmp = 0;
+		row++;
+	});
 	
-	var out = ""
+	var out = "";
 	for (var i = 1; i <= row; i++){ //i - line, k - row
-		var tr = ""
+		var tr = "";
 		for (var k = 0; k < line; k++){
-			var t = "", c = ""
+			var t = "", c = "";
 			if ((typeof def[i] !== "undefined") & (typeof def[i][k] !== "undefined")) {
-				t = def[i][k]
-				var anim = ""
+				t = def[i][k];
+				var anim = "";
 				if (typeof char.hit[i] !== "undefined")
 					if (typeof char.hit[i][k] !== "undefined")
 						if (char.hit[i][k] != t)
-							var anim = "anim"
+							var anim = "anim";
 					
-				c = "class='issue "+anim+"'"
+				c = "class='issue "+anim+"'";
 			}
 			
-			tr+="<td "+c+">"+t+"</td>"
+			tr+="<td "+c+">"+t+"</td>";
 		}
-		out="<tr>"+tr+"</tr>"+out
+		out="<tr>"+tr+"</tr>"+out;
 	}
-	char.hit = def
-	elem.html($(out))
-}
+	char.hit = def;
+	elem.html($(out));
+};
 
 
 $(function(){
 	
-	ch.draw()
-	ch.portrait_draw()
-	ch.hitbox.draw()
+	
+	ch.draw();
+	ch.portrait_draw();
+	ch.hitbox.draw();
+	ch.race_change();
 	
 	
-	$("input[name=race]","#race_wrap").change(function(){ ch.race_change() })
-	$("input[name=sex]","#sex_wrap").change(function(){ ch.sex_change() })
+	$("input[name=race]","#race_wrap").change(function(){ ch.race_change(); });
+	$("input[name=sex]","#sex_wrap").change(function(){ ch.sex_change(); });
 	
 	$(window).bind("mousemove",function(e){
-		var x = e.pageX
-		var w = $("#tooltip_wrap").width()
-		var of = -10
-		var cl = ""
+		var x = e.pageX;
+		var w = $("#tooltip_wrap").width();
+		var of = -10;
+		var cl = "";
 		
 		if (x-100 < w) {
-			cl = "right"
-			of = 10
+			cl = "right";
+			of = 10;
 		} else {
-			var cl = "left"
-			of = -10
+			var cl = "left";
+			of = -10;
 		}
 		$("#tooltip_point").removeClass("left right").addClass(cl).css({
 			"top": e.pageY -10,
 			"left": x + of
-		})
+		});
 		
-	})
+	});	
 
 	$(".skill", "#skill_wrap").hover(function(){
-		var name = $(this).attr("id")
-		name = name.replace("skill_","")
-		var val = $(this).data("val")
-		var desc = ch.set.skill[name].description
+		var obj = ch.set.skill;
+		var skill = $(this).attr("id").replace("skill_","");
+		var title = (typeof obj[skill].title !== "undefined") ? obj[skill].title : skill;
+		var description = (typeof obj[skill].description !== "undefined") ? obj[skill].description : "";
+
 		
-		$("#tooltip_content").html(desc)
-		$("#tooltip_point").stop(true,true).fadeIn()
+		$("#tooltip_header_content").html(title);
+		$("#tooltip_content").html(description);
+		$("#tooltip_point").stop(true,true).fadeIn();
 		
 	}, function(){
-		$("#tooltip_point").delay(100).fadeOut("fast")
-		console.log(char)
-	})
+		$("#tooltip_point").delay(100).fadeOut("fast");
+		//console.log(char);
+	});
 	
 	
 	

@@ -10,14 +10,18 @@
 
 }
 
+html { margin-left: calc(100vw - 100%); }
+
 body {
-	background : url('../img/theme/bg.jpg');
+	
 	color: white;
+	background : url('../img/theme/bg.jpg') top center;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 14px;
 	line-height: 1.42857;
 	text-align: center;
 }
+
 label {
 	cursor: pointer;
 }
@@ -295,7 +299,8 @@ label {
 	height: 40px;
 	text-align: center;
 	padding-left: 43px;
-	margin-top: 0px;
+	margin: 0 auto;
+	max-width: 1000px;
 }
 
 .ribbon > * {
@@ -322,7 +327,8 @@ label {
 #tooltip_content {
 	background: url("../img/theme/bg_2.gif");
 	padding: 12px;
-	min-width: 100px; 
+	min-width: 300px;
+	text-align: left; 
 }
 
 #tooltip_point.left #tooltip_wrap {right: 78px;}
@@ -344,6 +350,43 @@ label {
 #tooltip_point.right #tooltip_cursor {
 	left: -86px;
 	background-position: top left;
+}
+
+#tooltip_header {
+	position: relative;
+	top:-30px;
+	padding: 0px 40px;
+	white-space: nowrap;
+	height: 0px;
+	font: 20px/34px "HeinrichTextRegular","Times New Roman",serif;
+	color: rgb(255,180,0);
+	text-shadow: 0px 0px 2px rgb(0, 0, 0);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: center;
+}
+
+#tooltip_header > div {
+	display: inline-block;
+	position: relative;
+	background : url("../img/theme/header_1_c.png") top center repeat-x;
+}
+
+#tooltip_header > div:before,
+#tooltip_header > div:after {
+	content:"";
+	display: block;
+	position: absolute;	
+	width: 41px;
+	height: 24px;
+	background-image: url("../img/theme/header_1.png");
+}
+
+#tooltip_header > div:before { left: -41px; }
+#tooltip_header > div:after {
+	background-position: 100% -27px;
+	top: 0px;
+	right: -41px;
 }
 
 

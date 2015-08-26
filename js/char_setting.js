@@ -86,7 +86,7 @@ ch.set = {
 			title: "Атака",
 			group: "attack",
 			def: 0, //default
-			desription: "Базовое агрессивное действие."
+			description: "Базовое агрессивное действие."
 		},
 		power_attack: {
 			title: "Мощная атака",
