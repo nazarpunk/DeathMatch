@@ -1,3 +1,1 @@
-# DeathMatch 
-Хуй пиздец! 
-dgdgdgdgdg
+# DeathMatch
