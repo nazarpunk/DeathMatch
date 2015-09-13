@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Hex</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link href="css/hex.css" rel="stylesheet" />
+    <link href="data:image/x-icon;base64,AAABAAEAEBACAAAAAACwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAD/AIACAACAAgAA2DYAAHAcAAA4OAAALugAAAfAAAADgAAAB8AAAB7wAAA8eAAAeDgAAHAcAABgDAAAQAQAAEAEAAB//QAAf/0AACfJAACP4wAAx8cAANEXAAD4PwAA/H8AAPg/AADhDwAAw4cAAIfHAACP4wAAn/MAAL/7AAC/+wAA" rel="icon" type="image/x-icon" />
+    <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="js/hexagon.js" type="text/javascript"></script>
+    
+</head>
+<body>
+	<div id="scene_wrap"><div id="scene"><canvas id="canvas">Обнови браузер, Слоупок!</canvas></div></div>
+	<div id="menu">
+		
+	
+<dl class="accordion">
+  <dt data-tip="Создаёт или загружает поле боя<br>Х - ширина в хексах<br>Y - высота в хексах<br>R - радиус хекса (размер грани) в пикселах">HexGrid</dt>
+  <dd>
+ 	<label>X <input id="hex_grid_width_input" class="short" type="text" /></label>
+	<label>Y <input id="hex_grid_height_input" class="short" type="text" /></label>
+	<label>R <input id="hex_radius_input" class="short" type="text" /></label>
+	<div></div>
+	<button id="hex_draw_button" type="button">Create</button>
+	<button id="hex_load_button" type="button">Load</button>
+  
+  </dd>
+  <dt>Tile Editor</dt>
+  <dd>
+  	 
+  </dd>
+  <dt> Термін, який може мати обидва такі визначення </dt>
+  <dd> Інше визначення терміна </dd>
+</dl>
+
+<div id="menu_tip"></div>
+	
+	</div>
+
+</body>

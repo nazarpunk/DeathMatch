@@ -71,7 +71,7 @@ ch.portrait_draw = function(){
 ch.race_change = function(){
 	var race = ch.race_get();
 	
-	$("#skill_aim_attack_throw td:first-child").css("color","red")
+	$("#skill_aim_attack_throw td:first-child").css("color","red");
 	
 	ch.portrait_draw();
 	ch.hitbox.draw();
