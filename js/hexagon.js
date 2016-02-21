@@ -1,5 +1,3 @@
-// Hex math defined here: http://blog.ruslans.com/2011/02/hexagonal-grid-math.html
-
 function HexagonGrid(canvasId, radius) {
 	this.radius = radius;
 	this.height = Math.sqrt(3) * radius;
@@ -12,8 +10,8 @@ function HexagonGrid(canvasId, radius) {
     this.canvasOriginX = 0;
     this.canvasOriginY = 0;
     
-    this.canvas.addEventListener("mousedown", this.clickEvent.bind(this), false);
-    this.canvas.addEventListener("mousemove", this.moveEvent.bind(this), false);
+    //this.canvas.addEventListener("mousedown", this.clickEvent.bind(this), false);
+    //this.canvas.addEventListener("mousemove", this.moveEvent.bind(this), false);
 };
 
 HexagonGrid.prototype.set_radius = function(radius){
@@ -231,71 +229,3 @@ HexagonGrid.prototype.moveEvent = function (e) {
 
     var tile = this.getSelectedTile(localX, localY);
 };
-
-
-function hex_menu(){
-	this.radius_input = $("#hex_radius_input");
-	this.grid_width_input = $("#hex_grid_width_input");
-	this.grid_height_input = $("#hex_grid_height_input");
-	this.grid = new HexagonGrid("canvas", 25);
-}
-//hex_menu.prototype
-
-hex_menu.prototype.get_radius = function(){
-	var val = this.radius_input.val();
-	val = parseInt(val);
-	if (isNaN(val)) val = 25;
-	if(val < 5) val = 5; 
-
-	this.radius_input.val(val);
-	return val;	
-};
-hex_menu.prototype.get_grid_width = function(){
-	var val = this.grid_width_input.val();
-	val = parseInt(val);
-	if (isNaN(val)) val = 1;
-	if(val < 1) val = 1; 
-
-	this.grid_width_input.val(val);
-	return val;		
-};
-hex_menu.prototype.get_grid_height = function(){
-	var val = this.grid_height_input.val();
-	val = parseInt(val);
-	if (isNaN(val)) val = 1;
-	if(val < 1) val = 1; 
-
-	this.grid_height_input.val(val);
-	return val;		
-};
-
-hex_menu.prototype.draw = function(){
-		$("#scene_wrap").show();
-
-		
-		this.grid.set_radius( this.get_radius() );
-        this.grid.drawHexGrid(this.get_grid_height(), this.get_grid_width(), 10, 10);
-        //rows, cols, originX, originY, isDebug
-
-};
-
-
-$(function(){
-	var menu = new hex_menu();
-
-	$("#hex_draw_button").bind("click",function(){ menu.draw();});
-
-
-//make accordion
-	$("dt",".accordion").click(function(){
-		$(this).closest(".accordion").find("dd:visible").slideUp();
-		$("#menu_tip").empty()
-		if( $(this).data("tip")) $("#menu_tip").html( $(this).data("tip") )
-		var next = $(this).next("dd").stop(true);
-		
-		
-		next.filter(":visible").slideUp();
-		next.filter(":hidden").slideDown();
-	});
-
-});

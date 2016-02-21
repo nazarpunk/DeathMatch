@@ -1,0 +1,437 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../font/fontawesome-webfont.eot?v=4.4.0');
+  src: url('../font/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../font/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../font/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../font/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../font/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'HeinrichTextRegular';
+    src: url('../font/heinrich_text-webfont.eot');
+    src: url('../font/heinrich_text-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/heinrich_text-webfont.woff') format('woff'),
+         url('../font/heinrich_text-webfont.ttf') format('truetype'),
+         url('../font/heinrich_text-webfont.svg#HeinrichTextRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html,body
+{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	background-color: rgb(63, 73, 80);
+	color: white;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.42857;
+}
+
+:focus {
+	outline: none;
+}
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {/* */
+border: none;
+}
+
+.cf:before, .cf:after {
+    content: " "; 
+    display: table; 
+}
+.cf:after {
+    clear: both;
+}
+
+h1, h2, h3 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    margin: 12px 0;
+}
+
+h1 {font-size: 36px;}
+h2 {font-size: 30px;}
+h3 {font-size: 24px;}
+
+	button {
+		color: inherit;
+		outline: 0;
+		padding: 4px 12px;
+		display: inline-block;
+		font-weight: bold;
+		text-shadow: 1px 1px #1f272b;
+		cursor: pointer;
+		border: 1px solid #1c252b;
+		border-radius: 3px;
+		background:  #232B30 linear-gradient(to bottom, #3D4850 3%, #313d45 4%, #232B30 100%);
+		box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+		position: relative;
+	}
+	button:hover {
+		background: #4C5A64 linear-gradient(to bottom, #4C5A64 3%, #404F5A 4%, #2E3940 100%);
+	}
+	button:active {
+		top: 1px;
+		background: #20282D linear-gradient(to bottom, #20282D 3%, #252E34 51%, #222A30 100%);
+		box-shadow: 1px 1px 1px rgba(255,255,255,0.1);
+	}
+	
+input[type="text"],
+input[type="password"] {
+	padding: 4px;
+	border: 1px solid rgb(28, 37, 43);
+	color: inherit;
+	text-shadow: 1px 1px rgb(31, 39, 43);
+	border-radius: 3px;
+	background: rgb(32, 40, 45) linear-gradient(to bottom, rgb(32, 40, 45) 3%, rgb(37, 46, 52) 51%, rgb(34, 42, 48) 100%) repeat scroll 0% 0%;
+	box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.1);
+	transition: border-color 0.4s; 
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+	border-color: rgb(0, 150, 255);
+}
+
+.arcticmodal-overlay,
+.arcticmodal-container { position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 1000; }
+.arcticmodal-container { overflow: auto; margin: 0; padding: 0; border: 0; border-collapse: collapse; }
+*:first-child+html .arcticmodal-container { height: 100% }
+.arcticmodal-container_i { height: 100%; margin: 0 auto; }
+.arcticmodal-container_i2 { padding: 24px; margin: 0; border: 0; vertical-align: middle; }
+.arcticmodal-error { padding: 20px; border-radius: 10px; background: #000; color: #fff; }
+.arcticmodal-loading { width: 80px; height: 80px; border-radius: 10px; background: #000 url(loading.gif) no-repeat 50% 50%; }
+
+
+.arcticmodal-overlay {
+    background: transparent repeating-linear-gradient(-55deg, rgb(0, 0, 0), rgb(0, 0, 0) 10px, rgb(20, 20, 20) 10px, rgb(20, 20, 20) 20px);
+
+}
+.box-modal {
+	position: relative;
+	padding: 0;
+	background-color: rgb(60, 70, 80);
+	box-shadow: 0px 0px 0px 2px rgb(0, 0, 0);
+	border-radius: 6px;
+	min-width: 200px;
+	min-height: 200px;
+}
+
+.box-modal:before {
+	content:url('../img/content/cat.png');
+	width: 64px;
+	height: 51px;
+	position: absolute;
+	top: -52px;
+	right: -20px;
+}
+
+.box-modal > .header {
+	padding: 6px 12px;
+	background-color: rgba(0,0,0,0.4);
+	border-top: 1px solid rgb(14, 17, 21);
+	border-bottom: 1px solid rgb(80, 94, 108);
+	text-align: center;
+}
+
+.box-modal > .header:first-child { border-top: 0; }
+
+.box-modal > .content {
+	padding: 12px;
+}
+
+.box-modal_close {
+	position: absolute;
+	right: 10px;
+	top: 4px;
+	right: 6px;
+	line-height: 15px;
+	color: #999;
+	cursor: pointer;
+}
+
+.box-modal_close:before {
+	content: "";
+	font: 20px FontAwesome;
+}
+
+.box-modal_close:hover { color: #6897bb; }
+
+/* MENU */
+.zarMenu {
+	display: table;
+	position: relative;
+	border-spacing: 0;
+	box-sizing: border-box;
+	white-space: nowrap;
+	width: 100%;
+	-max-width: 1200px;
+	-min-width: 800px;
+	margin: 0 auto;
+	z-index: 10;
+	border-collapse: separate;
+	
+	margin-top: -1px;
+}
+
+
+.zarMenu > .elem {
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	background: rgb(73, 80, 84) linear-gradient(to bottom, rgb(78, 85, 89), rgb(56, 62, 67));
+	box-shadow: 0px 1px rgba(255, 255, 255, 0.08) inset, 0px 0px 0px 1px rgba(255, 255, 255, 0.05) inset /*, 0px 1px rgba(255, 255, 255, 0.08)*/;
+	padding: 6px 12px;
+	border: 1px solid;
+	border-top:0;
+	border-color: rgb(16, 16, 16) rgb(8, 8, 8) rgb(0, 0, 0);
+	text-shadow: 0px -1px rgb(0, 0, 0);
+	cursor: pointer;
+}
+.zarMenu > .elem:not(:first-child) {border-left: 0;}
+.zarMenu > .elem:not(.center):hover {
+	background: rgb(89, 96, 101) linear-gradient(to bottom, rgb(89, 96, 101), rgb(56, 62, 67));
+}
+.zarMenu > .elem:first-child, .zarMenu > .elem:last-child {border-radius: 0px;}
+.zarMenu > .elem:first-child { border-top-right-radius:0; border-bottom-right-radius:0; border-left:0}
+.zarMenu > .elem:last-child { border-top-left-radius:0; border-bottom-left-radius:0; border-right:0}
+
+.zarMenu > .elem.active {
+	color: rgb(204, 204, 204);
+	background: rgb(53, 58, 63) linear-gradient(to bottom, rgb(39, 43, 47), rgb(55, 61, 66));
+	border-color: rgb(0, 0, 0);
+	-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1) inset, 0px 1px rgba(255, 255, 255, 0.08);
+}
+.zarMenu > div.elem.active:hover {
+	background: rgb(53, 58, 63) linear-gradient(to bottom, rgb(56, 63, 71), rgb(55, 61, 66));
+}
+
+.zarMenu > .elem.center {
+	width: 100%;
+	cursor: auto;
+}
+
+
+.zarMenu > .elem.center {
+	font: 24px/12px HeinrichTextRegular;
+    text-align: center;
+    padding-top: 12px;
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+}
+
+.zarMenu > .elem:not(.active):hover > .tooltip:not(.menu) {display: block;}
+.zarMenu > .elem.active > .tooltip.menu {display: block;}
+
+
+
+/* TOOLTIP */
+.tooltip {
+	display: none;
+    position: absolute;
+    z-index: 101;
+    bottom: 8px;
+    height: 0;
+    color: white;
+    left: 0;
+}
+
+.tooltip.right {
+	left: auto;
+	right: 0
+}
+
+.tooltip > .arrow {
+	display: block;
+	height: 16px;
+	position: relative;
+	overflow: hidden;
+	bottom: -1px;
+}
+
+
+.tooltip > .arrow:before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	transform: rotate(45deg);
+	top: 8px;
+	left: 6px;
+	border: 1px solid transparent;
+}
+
+.tooltip.right > .arrow:before {
+	left: auto;
+	right: 6px;
+}
+
+.tooltip > .content {    
+    padding: 8px 15px;
+	border: 1px solid transparent;
+}
+
+.tooltip > .content,
+.tooltip > .menu {
+	display: block;
+    border-radius: 4px;
+}
+
+.tooltip > .menu {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+.tooltip > .menu > li {
+	display: block;
+	list-style: none;
+}
+
+.tooltip > .menu > li:not(:last-child) {
+	border-bottom: 1px solid rgb(189, 198, 215);
+}
+
+.tooltip > .menu > li > a,
+.tooltip > .menu > li > a:visited {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	padding: 6px 12px;
+	padding-right: 30px;
+}
+
+.tooltip > .menu > li > a:hover {
+	background: rgb(241, 244, 246);	
+}
+
+/* tooltip color */
+.tooltip > .content,
+.tooltip > .menu,
+.tooltip > .arrow:before {
+	border-color: rgb(16, 16, 16) rgb(8, 8, 8) rgb(0, 0, 0);
+	background-color: rgb(66, 72, 77);
+}
+
+.hotkey_letter {
+	color: rgb(0, 255, 255);
+	text-decoration: underline;
+	font-style: normal;
+}
+
+#scene_modal label {
+	margin: 4px auto;
+	text-align: right;
+}
+
+#scene_modal label > input {
+	margin-left: 12px;
+}
+
+#scene_modal input {
+	width: 3em;
+	text-align: center;	
+}
+
+#scene_modal .content {
+	text-align: center;
+}
+
+#scene_modal_scene_wrap {
+	display: inline-block;
+	white-space: nowrap;
+	text-align: center;
+	padding: 6px;
+	border: 1px solid black;
+	margin: 6px 0;
+	border-radius: 6px;
+	background-color: rgba(0,0,0,0.2);
+	position: relative;
+}
+
+#scene_modal_scene_wrap:before {
+	content: "offset";
+	position: absolute;
+	left: 6px;
+	top: 6px;
+	font-style: italic;
+	color: gray;
+}
+
+#scene_modal_scene {
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	margin: 6px auto;
+	border: 1px solid rgb(32, 38, 44);
+	vertical-align: middle;
+	border-radius: 6px;
+	overflow: hidden;
+	background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px; background-color:#282828; background-size:16px 16px;
+}
+#scene_modal_scene:before {
+	content: "";
+	display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#scene_modal_scene > span {
+	font-weight: bold;
+	font-size: 36px;
+	display: inline-block;
+	vertical-align: middle;
+	transform: rotate(45deg);
+	text-shadow: 0px 0px 70px rgb(0, 255, 255);
+}
+
+#scene {
+	background: rgba(0,0,0,0.2);
+	border: 1px solid rgba(0,0,0,0.4);
+}
+
+#wrap {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	height: 100%;
+}
+#wrap td {
+	padding: 0;
+	margin: 0;
+}
+
+#wrap tr:first-child td:first-child {
+	height: 1px;
+}
+
+#wrap tr:last-child td:first-child {
+	width: 20px;
+	background: rgba(0,0,0,0.6);
+}
+
+#wrap tr:last-child td:last-child {
+	text-align: left;
+	vertical-align: top;
+}
+
+
+.waaagh {
+	background-image: url("../img/theme/warboss.png");
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	
+}
