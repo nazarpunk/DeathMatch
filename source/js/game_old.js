@@ -32,7 +32,7 @@ window.game = {
 		else ctx.moveTo(x+this.hexRadiusHalf,y+this.hexHeightHalf); //BR
 		if (border[5]) ctx.lineTo(x-this.hexRadiusHalf,y+this.hexHeightHalf); //BL
 		
-		if (text) ctx.fillText(text, x, y);
+		//if (text) ctx.fillText(text, x, y);
 	},
 	hexGetIndexByPoint: function (x,y){
 		var ci = Math.floor(x/this.hexSide);
@@ -119,17 +119,19 @@ window.game = {
 	}
 };
 
-
-$(function(){
-	game.init({
+game.init({
 		wrap  : 'hexWrap',
 		canvasGrid : 'hexGrid',
 		hexRadius: 30,
-		gridWidth: 15,
-		gridHeight: 15,
-		fieldWidth: 1500,
-		fieldHeight: 1000,
+		gridWidth: 1000,
+		gridHeight: 1000,
+		fieldWidth: 5500,
+		fieldHeight: 5500,
 	});
+
+/*
+$(function(){
+	
 	
 	$('#hexWrap').bind('click',function(e){
 		var obj = game.hexGetIndexByPoint(e.offsetX,e.offsetY);
@@ -153,3 +155,4 @@ $(function(){
 	});
 
 });
+*/
