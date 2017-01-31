@@ -1,0 +1,49 @@
+/*T_Vlad 48*/
+.sprite_tVlad {
+	position: relative;
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	overflow: hidden;
+	z-index: 10;
+}
+
+.sprite_tVlad > div {
+	position: absolute;
+	width:  384px;
+	height: 384px;
+	background: url('../img/sprite/T_Vlad_Sword_Walking_48x48.png');
+	animation: sprite_tVlad 0.6s steps(8) infinite;
+}
+
+@keyframes sprite_tVlad{
+	0% {left:0px}
+	100% {left:-384px}
+}
+
+
+.explosionTemp {
+	z-index: 1;
+	position: relative;
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.explosionTemp:before {
+	content: '';
+	display:block;
+	position: absolute;
+	width:  1024px;
+	height: 512px;
+	top:-448px;
+	right: 0;
+	background: url('../img/sprite/explosion64_01.png');
+	animation: expl 0.8s steps(16);
+}
+
+@keyframes expl{
+	0% {left:0px}
+	100% {left:-1024px}
+}
