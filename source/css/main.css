@@ -59,7 +59,7 @@ button[type="button"]:active,button[type="submit"]:active,button[type="reset"]:a
 button::-moz-focus-inner {border: 0;}
 
 
-
+/* loading screen */
 #loadingWrap {
 	position: fixed;
 	background: rgba(0,0,0,0.4);
@@ -78,15 +78,105 @@ button::-moz-focus-inner {border: 0;}
 	vertical-align:middle;
 }
 #loadingBox {
+	position:relative;
 	display: inline-block;
 	width: 500px;
 	height: 480px;
 	background-color: rgb(15,15,15);
-	background-image:  url('../img/art/PreloaderGears.gif'),url('../img/art/Goblin.png'),url('../img/art/BackgroundTile.png');
-	background-repeat: no-repeat,no-repeat,repeat;
-	background-position: 20px 40px,center center,center center;
+	background-image:  url('../img/art/Goblin.png'),url('../img/art/BackgroundTile.png');
+	background-repeat: no-repeat,repeat;
+	background-position: center center,center center;
 	border: 1px solid black;
     vertical-align: middle;
     box-shadow: 0 0 8px 4px rgba(0,0,0,0.6);
 }
+
+#loadingZAR {
+	position: absolute;
+	background: url('../img/art/ZAR.png') center center no-repeat;
+	width: 256px;
+	height: 104px;
+	right: 49px;
+	bottom: 23px;
+	transform: rotate(-15deg) scale(0.8, 0.6); 
+}
+
+#loadingBox > .preloaderCircle {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+/* preloader circle */
+.preloaderCircle {
+	width:60px;
+	height:60px;
+}
+.preloaderCircle:before,
+.preloaderCircle:after {
+	content: '';
+	display:block;
+	background-color: rgba(0,0,0,0);
+	border:5px solid rgba(0,183,229,0.9);
+	opacity:.9;
+	border-left:5px solid rgba(0,0,0,0);
+	border-right:5px solid rgba(0,0,0,0);
+	border-radius:50px;
+	box-shadow: 0 0 15px #2187e7;
+	margin:0 auto;
+}
+
+
+.preloaderCircle:before {
+	width:50px;
+	height:50px;	
+	animation:spinPulse 1s infinite ease-in-out;
+}
+.preloaderCircle:after { 
+	width:30px;
+	height:30px;
+	position:relative;
+	top:-50px;
+	animation:spinoffPulse 1s infinite linear;
+}
+
+@keyframes spinPulse {
+	0% { transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7;}
+	50% { transform:rotate(145deg); opacity:1; }
+	100% { transform:rotate(-320deg); opacity:0; }
+}
+@keyframes spinoffPulse {
+	0% { transform:rotate(0deg); }
+	100% { transform:rotate(360deg);  }
+}
+
+/*scene*/
+#overview {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow:hidden;
+}
+
+
+#scene {
+	position: absolute;
+	width:3000px;
+	height: 1200px;
+}
+
+#scene > div {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;	
+}
+
+#layerAnim {
+	position: absolute;
+}
+
 
