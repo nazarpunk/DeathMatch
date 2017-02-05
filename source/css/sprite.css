@@ -1,30 +1,102 @@
-/*T_Vlad 48*/
-.sprite_tVlad {
-	position: relative;
-	width: 48px;
-	height: 48px;
+.sprite {
 	position: absolute;
+}
+
+.sprite:before {
+	content: '';
+	display:block;
+	position: absolute;
+}
+
+
+/*walker1*/
+.sprite_walker1 {
+	width: 64px;
+	height: 64px;
 	overflow: hidden;
 	z-index: 10;
 }
 
-.sprite_tVlad > div {
-	position: absolute;
+.sprite_walker1:before {
+	width:  1024px;
+	height: 512px;
+	background: url('../img/sprite/walker1_64x64.png');
+	animation: sprite_walker 0.6s steps(16) infinite;
+}
+
+.sprite_walker1[data-direction="t"]:before {top:-256px}
+.sprite_walker1[data-direction="tl"]:before {top:-320px}
+.sprite_walker1[data-direction="tr"]:before {top:-192px}
+.sprite_walker1[data-direction="r"]:before {top:-128px}
+.sprite_walker1[data-direction="l"]:before {top:-384px}
+.sprite_walker1[data-direction="b"]:before {top:-0px}
+.sprite_walker1[data-direction="bl"]:before {top:-448px}
+.sprite_walker1[data-direction="br"]:before {top:-64px}
+
+/*walker2*/
+.sprite_walker2 {
+	width: 64px;
+	height: 64px;
+	overflow: hidden;
+	z-index: 10;
+}
+
+.sprite_walker2:before {
+	width:  1024px;
+	height: 512px;
+	background: url('../img/sprite/walker2_64x64.png');
+	animation: sprite_walker 1.2s steps(16) infinite;
+}
+
+.sprite_walker2[data-direction="t"]:before {top:-256px}
+.sprite_walker2[data-direction="tl"]:before {top:-320px}
+.sprite_walker2[data-direction="tr"]:before {top:-192px}
+.sprite_walker2[data-direction="r"]:before {top:-128px}
+.sprite_walker2[data-direction="l"]:before {top:-384px}
+.sprite_walker2[data-direction="b"]:before {top:-0px}
+.sprite_walker2[data-direction="bl"]:before {top:-448px}
+.sprite_walker2[data-direction="br"]:before {top:-64px}
+
+@keyframes sprite_walker{
+	0% {left:0px}
+	100% {left:-1024px}
+}
+
+
+
+/*T_Vlad 48*/
+.sprite_tVlad {
+	width: 48px;
+	height: 48px;
+	overflow: hidden;
+	z-index: 10;
+}
+
+.sprite_tVlad:before {
 	width:  384px;
 	height: 384px;
 	background: url('../img/sprite/T_Vlad_Sword_Walking_48x48.png');
 	animation: sprite_tVlad 0.6s steps(8) infinite;
 }
 
+.sprite_tVlad[data-direction="t"]:before {top:-48px}
+.sprite_tVlad[data-direction="tl"]:before {top:-144px}
+.sprite_tVlad[data-direction="tr"]:before {top:-96px}
+.sprite_tVlad[data-direction="r"]:before {top:-0px}
+.sprite_tVlad[data-direction="l"]:before {top:-336px}
+.sprite_tVlad[data-direction="b"]:before {top:-192px}
+.sprite_tVlad[data-direction="bl"]:before {top:-288px}
+.sprite_tVlad[data-direction="br"]:before {top:-240px}
+
+
 @keyframes sprite_tVlad{
 	0% {left:0px}
 	100% {left:-384px}
 }
 
-
+/*explosion x8 */
 .explosionTemp {
 	z-index: 1;
-	position: relative;
 	width: 64px;
 	height: 64px;
 	position: absolute;
@@ -32,18 +104,68 @@
 }
 
 .explosionTemp:before {
-	content: '';
-	display:block;
-	position: absolute;
 	width:  1024px;
 	height: 512px;
-	top:-448px;
 	right: 0;
 	background: url('../img/sprite/explosion64_01.png');
-	animation: expl 0.8s steps(16);
+	animation: expl 1s steps(17) infinite;
 }
+
+.explosionTemp.v1:before {top:0px}
+.explosionTemp.v2:before {top:-64px}
+.explosionTemp.v3:before {top:-128px}
+.explosionTemp.v4:before {top:-192px}
+.explosionTemp.v5:before {top:-256px}
+.explosionTemp.v6:before {top:-320px}
+.explosionTemp.v7:before {top:-384px}
+.explosionTemp.v8:before {top:-448px}
+
 
 @keyframes expl{
 	0% {left:0px}
-	100% {left:-1024px}
+	100% {left:-1088px}
+}
+
+/* ball */
+.spriteBall {
+	z-index: 1;
+	width: 135px;
+	height: 45px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.spriteBall:before {
+	width:  675px;
+	height: 45px;
+	right: 0;
+	background: url('../img/sprite/ball.png');
+	animation: spriteBall 1s steps(5) infinite;
+}
+
+@keyframes spriteBall{
+	0% {left:0px}
+	100% {left:-675px}
+}
+
+/* meat */
+.spriteMeat {
+	z-index: 1;
+	width: 185px;
+	height: 133px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.spriteMeat:before {
+	width:  2414px;
+	height: 133px;
+	right: 0;
+	background: url('../img/sprite/meat.png');
+	animation: spriteMeat 1s steps(13) infinite;
+}
+
+@keyframes spriteMeat {
+	0% {left:0px}
+	100% {left:-2414px}
 }

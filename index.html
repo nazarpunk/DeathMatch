@@ -10,6 +10,7 @@
 	<link href="source/css/sprite.css" rel="stylesheet" />
 </head>
 <body>
+	
 	<div id="loadingWrap" style="display:none">
 		<div id="loadingBox">
 			<div id="loadingZAR"></div>
@@ -28,7 +29,69 @@
 		</div>
 	</div>
 
+	<!--<button id="meatStartBtn" type="button" style="position:fixed; bottom:20px;left:50%">Мяско</button>-->
+	
+	<div id="meatOverview">
+		<div id="meatScene">
+			<div id="meatLayerMain"></div>
+			
+		</div>
+		<div id="meatUi">
+			
+			<div id="meatuISpriteTestHeader">
+				<div>
+					<table id="meatUiDirectionTable">
+						<tr><td data-direction="tl">TL</td><td data-direction="t">T</td><td data-direction="tr">TR</td></tr>
+						<tr><td data-direction="l">L</td><td></td><td data-direction="r">R</td></tr>
+						<tr><td data-direction="bl">BL</td><td data-direction="b">B</td><td data-direction="br">BR</td></tr>
+					</table>
+				</div>
+				
+				<div>
+					<table id="meatUiActionTable">
+						<tr>
+							<td data-action="stand">Stand</td>
+							<td data-action="walk">Walk</td>
+							<td data-action="attack">Attack</td>
+							<td data-action="death">Death</td>
+						</tr>
+					</table>
+				</div>
+				
+				
+			</div>
+			<div id="meatuISpriteTest">
+				<div id="meatuISpriteTestContainer">
+					<div><div class="sprite sprite_walker2"></div></div>
+					<div><div class="sprite sprite_walker1"></div></div>
+					<div><div class="sprite sprite_tVlad"></div></div>
+					
+					<!-- projectile -->
+					<div><div class="sprite explosionTemp v1"></div></div>
+					<div><div class="sprite explosionTemp v2"></div></div>
+					<div><div class="sprite explosionTemp v3"></div></div>
+					<div><div class="sprite explosionTemp v4"></div></div>
+					<div><div class="sprite explosionTemp v5"></div></div>
+					<div><div class="sprite explosionTemp v6"></div></div>
+					<div><div class="sprite explosionTemp v7"></div></div>
+					<div><div class="sprite explosionTemp v8"></div></div>
+					
+					
+					
+					<!-- fuck -->
+					<div><div class="sprite spriteBall"></div></div>
+					<div><div class="sprite spriteMeat"></div></div>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
 	<script src="source/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="source/js/scene.js" type="text/javascript"></script>
+	<script src="source/js/meat.js" type="text/javascript"></script>
 	</body>
 </html>

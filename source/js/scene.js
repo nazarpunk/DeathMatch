@@ -6,12 +6,23 @@ window.scene = {
 	
 };
 
-
-
-
 window.mouseX = 0;
 window.mouseY = 0;
 window.mouseReady = false;
+
+
+$('body').bind('mousemove',function(e){
+	window.mouseReady = true;
+	window.mouseX = e.pageX;
+	window.mouseY = e.pageY;
+	
+});
+
+
+
+
+
+
 
 window.sprite = $('.sprite_tVlad');
 window.spriteDiv = $('.sprite_tVlad > div');
@@ -61,23 +72,17 @@ window.spriteMove = function(){
 	
 };
 
-setInterval(spriteMove,20);
+//setInterval(spriteMove,20);
 
 
-$('body').bind('mousemove',function(e){
-	window.mouseReady = true;
-	window.mouseX = e.pageX;
-	window.mouseY = e.pageY;
-	
-});
-
+/*
 $('body').bind('contextmenu',function(e){
 	e.preventDefault();
 	
 	$('#loadingWrap').fadeToggle();
 	
 });
-
+*/
 
 
 

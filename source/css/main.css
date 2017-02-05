@@ -179,4 +179,93 @@ button::-moz-focus-inner {border: 0;}
 	position: absolute;
 }
 
+/* meat */
+#meatOverview {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow:hidden;
+}
 
+#meatScene {
+	position: absolute;
+	width:3000px;
+	height: 3000px;
+	background: url('../img/tile/ToyFactory_Multi-texturing_grass.jpg');
+}
+
+#meatScene > div {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+
+#meatUi {
+	position: absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	left: 0;
+	border: 2px dashed black;
+}
+
+#meatuISpriteTest {
+	position: absolute;
+	top: 120px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+
+#meatuISpriteTestHeader > div {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#meatuISpriteTestContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: auto;
+}
+
+#meatuISpriteTestContainer > div {
+	display: inline-block;
+	border: 1px dashed red;
+	margin: 2px;
+	padding: 3px;
+	position: relative;
+	font-size: 0;
+	line-height: 0;
+}
+
+#meatuISpriteTestContainer > div > div {
+	display: inline-block;
+	position: relative;
+}
+
+#meatUiDirectionTable td,
+#meatUiActionTable td {
+	width: 20px;
+	height: 20px;
+	border: 1px solid white;
+	background: rgb(15,15,15);
+	text-align: center;
+	vertical-align: middle;
+}
+
+#meatUiActionTable td {
+	width: auto;
+	padding: 0 12px;
+}
+
+#meatUiDirectionTable td.active,
+#meatUiActionTable td.active {
+	border-color: red;
+}
