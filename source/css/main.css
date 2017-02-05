@@ -243,6 +243,7 @@ button::-moz-focus-inner {border: 0;}
 	position: relative;
 	font-size: 0;
 	line-height: 0;
+	vertical-align: top;
 }
 
 #meatuISpriteTestContainer > div > div {
