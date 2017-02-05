@@ -7,10 +7,12 @@
 	content: '';
 	display:block;
 	position: absolute;
+	background-position: top left;
+	background-repeat: no-repeat;
 }
 
 /* Flare */
-.spriteFlareOrc {
+.spriteFlare {
 	width: 128px;
 	height: 128px;
 }
@@ -18,27 +20,30 @@
 .spriteFlareOrc:before {
 	width:  4096px;
 	height: 1024px;
-	background-position: top left;
-	background-repeat: no-repeat;
 }
 
-.spriteFlareOrc[data-direction="t"]:before {top:-256px}
-.spriteFlareOrc[data-direction="tl"]:before {top:-128px}
-.spriteFlareOrc[data-direction="tr"]:before {top:-384px}
-.spriteFlareOrc[data-direction="r"]:before {top:-512px}
-.spriteFlareOrc[data-direction="l"]:before {top:0px}
-.spriteFlareOrc[data-direction="b"]:before {top:-768px}
-.spriteFlareOrc[data-direction="bl"]:before {top:-896px}
-.spriteFlareOrc[data-direction="br"]:before {top:-640px}
+.spriteFlareGoblin:before {
+	width:  6144px;
+	height: 1024px;
+}
 
 
+.spriteFlare[data-direction="t"]:before {top:-256px}
+.spriteFlare[data-direction="tl"]:before {top:-128px}
+.spriteFlare[data-direction="tr"]:before {top:-384px}
+.spriteFlare[data-direction="r"]:before {top:-512px}
+.spriteFlare[data-direction="l"]:before {top:0px}
+.spriteFlare[data-direction="b"]:before {top:-768px}
+.spriteFlare[data-direction="bl"]:before {top:-896px}
+.spriteFlare[data-direction="br"]:before {top:-640px}
+
+/* orc anim */
 .spriteFlareOrc[data-action="stand"]:before {animation: spriteFlareOrcStand 0.8s steps(4) infinite;}
 .spriteFlareOrc[data-action="run"]:before {animation: spriteFlareOrcRun 0.6s steps(8) infinite;}
 .spriteFlareOrc[data-action="attack"]:before {animation: spriteFlareOrcAttack 0.6s steps(4) infinite;}
 .spriteFlareOrc[data-action="death"]:before {animation: spriteFlareOrcDeath 0.8s steps(8) infinite;}
 .spriteFlareOrc[data-action="spell"]:before {animation: spriteFlareOrcSpell 0.6s steps(4) infinite;}
 .spriteFlareOrc[data-action="throw"]:before {animation: spriteFlareOrcThrow 0.8s steps(4) infinite;}
-
 
 @keyframes spriteFlareOrcStand {0%{left:0px} 100%{left:-512px}}
 @keyframes spriteFlareOrcRun {0%{left:-512px} 100%{left:-1536px}}
@@ -48,10 +53,36 @@
 @keyframes spriteFlareOrcThrow {0%{left:-3584px} 100%{left:-4096px}}
 
 
+/*goblin anim */
+.spriteFlareGoblin[data-action="stand"]:before {animation: spriteFlareGoblinStand 10.8s steps(48) infinite;}
+.spriteFlareGoblin[data-action="run"]:before {animation: spriteFlareGoblinRun 0.6s steps(8) infinite;}
+.spriteFlareGoblin[data-action="attack"]:before {animation: spriteFlareGoblinAttack 0.6s steps(4) infinite;}
+.spriteFlareGoblin[data-action="death"]:before {animation: spriteFlareGoblinDeath 0.8s steps(8) infinite;}
+.spriteFlareGoblin[data-action="spell"]:before {animation: spriteFlareGoblinSpell 0.6s steps(4) infinite;}
+.spriteFlareGoblin[data-action="throw"]:before {animation: spriteFlareGoblinThrow 0.8s steps(4) infinite;}
+
+@keyframes spriteFlareGoblinStand {0%{left:0px} 100%{left:-6144px}}
+@keyframes spriteFlareGoblinRun {0%{left:-512px} 100%{left:-1536px}}
+@keyframes spriteFlareGoblinAttack {0%{left:-1536px} 100%{left:-2048px}}
+@keyframes spriteFlareGoblinDeath {0%{left:-2048px} 100%{left:-3072px}}
+@keyframes spriteFlareGoblinSpell {0%{left:-3072px} 100%{left:-3584px}}
+@keyframes spriteFlareGoblinThrow {0%{left:-3584px} 100%{left:-4096px}}
+
+
+
 .spriteFlareOrcRegular:before {background-image: url('../img/sprite/FlareOrcRegular128x128.png');}
 .spriteFlareOrcArcher:before {background-image: url('../img/sprite/FlareOrcArcher128x128.png');}
 .spriteFlareOrcHeavy:before {background-image: url('../img/sprite/FlareOrcHeavy128x128.png');}
 .spriteFlareOrcElite:before {background-image: url('../img/sprite/FlareOrcElite128x128.png');}
+
+.spriteFlareZombie:before {background-image: url('../img/sprite/FlareZombie128x128.png');}
+.spriteFlareZombiePirate:before {background-image: url('../img/sprite/FlareZombiePirate128x128.png');}
+
+
+.spriteFlareSceletonOccultist:before {background-image: url('../img/sprite/FlareSceletonOccultist128x128.png');}
+.spriteFlareSceletonKnight:before {background-image: url('../img/sprite/FlareSkeletonKnight128x128.png');}
+.spriteFlareSceletonMage:before {background-image: url('../img/sprite/FlareSkeletonMage128x128.png');}
+
 
 .spriteFlareMinotaur:before {background-image: url('../img/sprite/FlareMinotaur128x128.png');}
 .spriteFlareHorse:before {background-image: url('../img/sprite/FlareHorse128x128.png');}
@@ -60,6 +91,10 @@
 
 .spriteFlareGoblinCharger:before {background-image: url('../img/sprite/FlareGoblinCharger128x128.png');}
 .spriteFlareGoblinShaman:before {background-image: url('../img/sprite/FlareGoblinShaman128x128.png');}
+.spriteFlareGoblinSpearman:before {background-image: url('../img/sprite/FlareGoblinSpearman128x128.png');}
+.spriteFlareGoblinSpearmanElite:before {background-image: url('../img/sprite/FlareGoblinSpearmanElite128x128.png');}
+.spriteFlareHobgoblinBow:before {background-image: url('../img/sprite/FlareHobgoblinBow128x128.png');}
+.spriteFlareHobgoblinKnife:before {background-image: url('../img/sprite/FlareHobgoblinKnife128x128.png');}
 
 
 
@@ -68,280 +103,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*troll*/
-.sprite_troll {
-	width: 256px;
-	height: 256px;
-	overflow: hidden;
-	z-index: 10;
-}
-
-.sprite_troll:before {
-	width:  8192px;
-	height: 2048px;
-	background: url('../img/sprite/troll_256x256.png');
-}
-
-.sprite_troll[data-direction="t"]:before {top:-512px}
-.sprite_troll[data-direction="tl"]:before {top:-256px}
-.sprite_troll[data-direction="tr"]:before {top:-768px}
-.sprite_troll[data-direction="r"]:before {top:-1024px}
-.sprite_troll[data-direction="l"]:before {top:0px}
-.sprite_troll[data-direction="b"]:before {top:-1536px}
-.sprite_troll[data-direction="bl"]:before {top:-1792px}
-.sprite_troll[data-direction="br"]:before {top:-1280px}
-
-.sprite_troll[data-action="stand"]:before {animation: sprite_trollStand 0.8s steps(4) infinite;}
-.sprite_troll[data-action="walk"]:before,
-.sprite_troll[data-action="run"]:before {animation: sprite_trollRun 0.6s steps(8) infinite;}
-.sprite_troll[data-action="attack"]:before {animation: sprite_trollAttack 0.6s steps(4) infinite;}
-.sprite_troll[data-action="death"]:before {animation: sprite_trollDeath 0.8s steps(8) infinite;}
-.sprite_troll[data-action="spell"]:before {animation: sprite_trollSpell 0.6s steps(4) infinite;}
-.sprite_troll[data-action="throw"]:before {animation: sprite_trollThrow 0.8s steps(4) infinite;}
-
-
-@keyframes sprite_trollStand {0%{left:0px} 100%{left:-1024px}}
-@keyframes sprite_trollRun {0%{left:-1024px} 100%{left:-3072px}}
-@keyframes sprite_trollAttack {0%{left:-3072px} 100%{left:-4096px}}
-@keyframes sprite_trollDeath {0%{left:-4096px} 100%{left:-6144px}}
-@keyframes sprite_trollSpell {0%{left:-6144px} 100%{left:-7168px}}
-@keyframes sprite_trollThrow {0%{left:-7168px} 100%{left:-8192px}}
-
-
-
-/*orcArcher*/
-.sprite_orcArcher {
-	width: 128px;
-	height: 128px;
-	overflow: hidden;
-	z-index: 10;
-}
-
-.sprite_orcArcher:before {
-	width:  4096px;
-	height: 1024px;
-	background: url('../img/sprite/orc_archer_128x128.png');
-}
-
-.sprite_orcArcher[data-direction="t"]:before {top:-256px}
-.sprite_orcArcher[data-direction="tl"]:before {top:-128px}
-.sprite_orcArcher[data-direction="tr"]:before {top:-384px}
-.sprite_orcArcher[data-direction="r"]:before {top:-512px}
-.sprite_orcArcher[data-direction="l"]:before {top:0px}
-.sprite_orcArcher[data-direction="b"]:before {top:-768px}
-.sprite_orcArcher[data-direction="bl"]:before {top:-896px}
-.sprite_orcArcher[data-direction="br"]:before {top:-640px}
-
-.sprite_orcArcher[data-action="stand"]:before {animation: sprite_orcArcherStand 0.8s steps(4) infinite;}
-.sprite_orcArcher[data-action="walk"]:before,
-.sprite_orcArcher[data-action="run"]:before {animation: sprite_orcArcherRun 0.6s steps(8) infinite;}
-.sprite_orcArcher[data-action="attack"]:before {animation: sprite_orcArcherAttack 0.6s steps(4) infinite;}
-.sprite_orcArcher[data-action="death"]:before {animation: sprite_orcArcherDeath 0.8s steps(8) infinite;}
-.sprite_orcArcher[data-action="spell"]:before {animation: sprite_orcArcherSpell 0.6s steps(4) infinite;}
-.sprite_orcArcher[data-action="throw"]:before {animation: sprite_orcArcherThrow 0.8s steps(4) infinite;}
-
-
-@keyframes sprite_orcArcherStand {0%{left:0px} 100%{left:-512px}}
-@keyframes sprite_orcArcherRun {0%{left:-512px} 100%{left:-1536px}}
-@keyframes sprite_orcArcherAttack {0%{left:-1536px} 100%{left:-2048px}}
-@keyframes sprite_orcArcherDeath {0%{left:-2048px} 100%{left:-3072px}}
-@keyframes sprite_orcArcherSpell {0%{left:-3072px} 100%{left:-3584px}}
-@keyframes sprite_orcArcherThrow {0%{left:-3584px} 100%{left:-4096px}}
-
-
-
-/*orcElite*/
-.sprite_orcElite {
-	width: 128px;
-	height: 128px;
-	overflow: hidden;
-	z-index: 10;
-}
-
-.sprite_orcElite:before {
-	width:  4096px;
-	height: 1024px;
-	background: url('../img/sprite/orc_elite_128x128.png');
-}
-
-.sprite_orcElite[data-direction="t"]:before {top:-256px}
-.sprite_orcElite[data-direction="tl"]:before {top:-128px}
-.sprite_orcElite[data-direction="tr"]:before {top:-384px}
-.sprite_orcElite[data-direction="r"]:before {top:-512px}
-.sprite_orcElite[data-direction="l"]:before {top:0px}
-.sprite_orcElite[data-direction="b"]:before {top:-768px}
-.sprite_orcElite[data-direction="bl"]:before {top:-896px}
-.sprite_orcElite[data-direction="br"]:before {top:-640px}
-
-.sprite_orcElite[data-action="stand"]:before {animation: sprite_orcEliteStand 0.8s steps(4) infinite;}
-.sprite_orcElite[data-action="walk"]:before,
-.sprite_orcElite[data-action="run"]:before {animation: sprite_orcEliteRun 0.6s steps(8) infinite;}
-.sprite_orcElite[data-action="attack"]:before {animation: sprite_orcEliteAttack 0.6s steps(4) infinite;}
-.sprite_orcElite[data-action="death"]:before {animation: sprite_orcEliteDeath 0.8s steps(8) infinite;}
-.sprite_orcElite[data-action="spell"]:before {animation: sprite_orcEliteSpell 0.6s steps(4) infinite;}
-.sprite_orcElite[data-action="throw"]:before {animation: sprite_orcEliteThrow 0.8s steps(4) infinite;}
-
-
-@keyframes sprite_orcEliteStand {0%{left:0px} 100%{left:-512px}}
-@keyframes sprite_orcEliteRun {0%{left:-512px} 100%{left:-1536px}}
-@keyframes sprite_orcEliteAttack {0%{left:-1536px} 100%{left:-2048px}}
-@keyframes sprite_orcEliteDeath {0%{left:-2048px} 100%{left:-3072px}}
-@keyframes sprite_orcEliteSpell {0%{left:-3072px} 100%{left:-3584px}}
-@keyframes sprite_orcEliteThrow {0%{left:-3584px} 100%{left:-4096px}}
-
-
-
-
-/*orcHeavy*/
-.sprite_orcHeavy {
-	width: 128px;
-	height: 128px;
-	overflow: hidden;
-	z-index: 10;
-}
-
-.sprite_orcHeavy:before {
-	width:  4096px;
-	height: 1024px;
-	background: url('../img/sprite/orc_heavy_128x128.png');
-}
-
-.sprite_orcHeavy[data-direction="t"]:before {top:-256px}
-.sprite_orcHeavy[data-direction="tl"]:before {top:-128px}
-.sprite_orcHeavy[data-direction="tr"]:before {top:-384px}
-.sprite_orcHeavy[data-direction="r"]:before {top:-512px}
-.sprite_orcHeavy[data-direction="l"]:before {top:0px}
-.sprite_orcHeavy[data-direction="b"]:before {top:-768px}
-.sprite_orcHeavy[data-direction="bl"]:before {top:-896px}
-.sprite_orcHeavy[data-direction="br"]:before {top:-640px}
-
-.sprite_orcHeavy[data-action="stand"]:before {animation: sprite_orcHeavyStand 0.8s steps(4) infinite;}
-.sprite_orcHeavy[data-action="walk"]:before,
-.sprite_orcHeavy[data-action="run"]:before {animation: sprite_orcHeavyRun 0.6s steps(8) infinite;}
-.sprite_orcHeavy[data-action="attack"]:before {animation: sprite_orcHeavyAttack 0.6s steps(4) infinite;}
-.sprite_orcHeavy[data-action="death"]:before {animation: sprite_orcHeavyDeath 0.8s steps(8) infinite;}
-.sprite_orcHeavy[data-action="spell"]:before {animation: sprite_orcHeavySpell 0.6s steps(4) infinite;}
-.sprite_orcHeavy[data-action="throw"]:before {animation: sprite_orcHeavyThrow 0.8s steps(4) infinite;}
-
-
-@keyframes sprite_orcHeavyStand {0%{left:0px} 100%{left:-512px}}
-@keyframes sprite_orcHeavyRun {0%{left:-512px} 100%{left:-1536px}}
-@keyframes sprite_orcHeavyAttack {0%{left:-1536px} 100%{left:-2048px}}
-@keyframes sprite_orcHeavyDeath {0%{left:-2048px} 100%{left:-3072px}}
-@keyframes sprite_orcHeavySpell {0%{left:-3072px} 100%{left:-3584px}}
-@keyframes sprite_orcHeavyThrow {0%{left:-3584px} 100%{left:-4096px}}
-
-
-/*demonStatue*/
-.sprite_demonStatue {
-	width: 256px;
-	height: 256px;
-	overflow: hidden;
-	z-index: 10;
-}
-
-.sprite_demonStatue:before {
-	width:  8192px;
-	height: 2048px;
-	background: url('../img/sprite/demon_statue_256x256.png');
-}
-
-.sprite_demonStatue[data-direction="t"]:before {top:-512px}
-.sprite_demonStatue[data-direction="tl"]:before {top:-256px}
-.sprite_demonStatue[data-direction="tr"]:before {top:-768px}
-.sprite_demonStatue[data-direction="r"]:before {top:-1024px}
-.sprite_demonStatue[data-direction="l"]:before {top:0px}
-.sprite_demonStatue[data-direction="b"]:before {top:-1536px}
-.sprite_demonStatue[data-direction="bl"]:before {top:-1792px}
-.sprite_demonStatue[data-direction="br"]:before {top:-1280px}
-
-.sprite_demonStatue[data-action="stand"]:before {animation: sprite_demonStatueStand 0.8s steps(4) infinite;}
-.sprite_demonStatue[data-action="walk"]:before,
-.sprite_demonStatue[data-action="run"]:before {animation: sprite_demonStatueRun 0.6s steps(8) infinite;}
-.sprite_demonStatue[data-action="attack"]:before {animation: sprite_demonStatueAttack 0.6s steps(4) infinite;}
-.sprite_demonStatue[data-action="death"]:before {animation: sprite_demonStatueDeath 0.8s steps(8) infinite;}
-.sprite_demonStatue[data-action="spell"]:before {animation: sprite_demonStatueSpell 0.6s steps(4) infinite;}
-.sprite_demonStatue[data-action="throw"]:before {animation: sprite_demonStatueThrow 0.8s steps(4) infinite;}
-
-
-@keyframes sprite_demonStatueStand {0%{left:0px} 100%{left:-1024px}}
-@keyframes sprite_demonStatueRun {0%{left:-1024px} 100%{left:-3072px}}
-@keyframes sprite_demonStatueAttack {0%{left:-3072px} 100%{left:-4096px}}
-@keyframes sprite_demonStatueDeath {0%{left:-4096px} 100%{left:-6144px}}
-@keyframes sprite_demonStatueSpell {0%{left:-6144px} 100%{left:-7168px}}
-@keyframes sprite_demonStatueThrow {0%{left:-7168px} 100%{left:-8192px}}
-
-
-
-
-/*minotaur*/
-.sprite_minotaur {
-	width: 128px;
-	height: 128px;
-	overflow: hidden;
-	z-index: 10;
-}
-
-.sprite_minotaur:before {
-	width:  4096px;
-	height: 1024px;
-	background: url('../img/sprite/minotaur_128x128.png');
-}
-
-.sprite_minotaur[data-direction="t"]:before {top:-256px}
-.sprite_minotaur[data-direction="tl"]:before {top:-128px}
-.sprite_minotaur[data-direction="tr"]:before {top:-384px}
-.sprite_minotaur[data-direction="r"]:before {top:-512px}
-.sprite_minotaur[data-direction="l"]:before {top:0px}
-.sprite_minotaur[data-direction="b"]:before {top:-768px}
-.sprite_minotaur[data-direction="bl"]:before {top:-896px}
-.sprite_minotaur[data-direction="br"]:before {top:-640px}
-
-.sprite_minotaur[data-action="stand"]:before {animation: sprite_minotaurStand 0.8s steps(4) infinite;}
-.sprite_minotaur[data-action="walk"]:before,
-.sprite_minotaur[data-action="run"]:before {animation: sprite_minotaurRun 0.6s steps(8) infinite;}
-.sprite_minotaur[data-action="attack"]:before {animation: sprite_minotaurAttack 0.6s steps(4) infinite;}
-.sprite_minotaur[data-action="death"]:before {animation: sprite_minotaurDeath 0.8s steps(8) infinite;}
-.sprite_minotaur[data-action="spell"]:before {animation: sprite_minotaurSpell 0.6s steps(4) infinite;}
-.sprite_minotaur[data-action="throw"]:before {animation: sprite_minotaurThrow 0.8s steps(4) infinite;}
-
-
-@keyframes sprite_minotaurStand {0%{left:0px} 100%{left:-512px}}
-@keyframes sprite_minotaurRun {0%{left:-512px} 100%{left:-1536px}}
-@keyframes sprite_minotaurAttack {0%{left:-1536px} 100%{left:-2048px}}
-@keyframes sprite_minotaurDeath {0%{left:-2048px} 100%{left:-3072px}}
-@keyframes sprite_minotaurSpell {0%{left:-3072px} 100%{left:-3584px}}
-@keyframes sprite_minotaurThrow {0%{left:-3584px} 100%{left:-4096px}}
 
 
 

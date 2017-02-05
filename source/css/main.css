@@ -235,6 +235,10 @@ button::-moz-focus-inner {border: 0;}
 	overflow-y: auto;
 }
 
+#meatuISpriteTestContainer > span {
+	display: block;
+}
+
 #meatuISpriteTestContainer > div {
 	display: inline-block;
 	border: 1px dashed red;
